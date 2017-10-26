@@ -67,3 +67,14 @@ textarea {
 .info {
     text-align: center;
 }
+
+p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}

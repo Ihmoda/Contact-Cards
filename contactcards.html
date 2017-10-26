@@ -14,18 +14,23 @@
         $("#submitbutton").click(function(){
             var firstname = $("#firstname").val();
             var lastname = $("#lastname").val();
-            $("#cardcontainer").append("<div class='card'><p class='nametitle'>"+firstname+" "+lastname+"</p><p class='info'>Click for more information</p></div>");
+            var description = $("#description").val();
+            $("#cardcontainer").append("<div class='card'><p class='nametitle'>"+firstname+" "+lastname+"</p><p class='info'>Click for more information</p><p class='description hidden'>" + description + "</p></div>");
             return false;
 
         });
 
         $(document).on("click", ".card", function(){
-            var description = $("#description").val();
-            $(this).children().html(description);
+            if ($(this).children(".nametitle").hasClass("hidden") == false){
+                $(this).children(".nametitle").addClass("hidden");
+                $(this).children(".info").addClass("hidden");
+                $(this).children(".description").removeClass("hidden");
+            } else {
+                $(this).children(".nametitle").removeClass("hidden");
+                $(this).children(".info").removeClass("hidden");
+                $(this).children(".description").addClass("hidden");
+            }
         });
-
-
-
 
     });
     
